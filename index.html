@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1 class="title">TASK MANAGER</h1>
+
+    <div class="input-container">
+        <input type="text" id="taskInput" placeholder="Enter task">
+        <button id="addTaskBtn" disabled>Add Task</button>
+    </div>
+
+    <div class="count-container">
+        <div class="count-box">Total Tasks: <span id="totalCount">0</span></div>
+        <div class="count-box">Completed Tasks: <span id="completedCount">0</span></div>
+    </div>
+
+    <div class="task-container">
+        <ul id="taskList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
