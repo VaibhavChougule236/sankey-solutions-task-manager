@@ -14,6 +14,9 @@ function addTask() {
     const text = taskInput.value.trim();
     if (text === "") return;
 
+    const serial = document.createElement("span");
+    serial.className = "serial";
+
     const li = document.createElement("li");
 
     const span = document.createElement("span");
@@ -36,8 +39,10 @@ function addTask() {
     deleteBtn.addEventListener("click", () => {
         li.remove();
         updateCount();
+        updateSerialNumbers();
     });
 
+    li.appendChild(serial);
     li.appendChild(span);
     li.appendChild(completeBtn);
     li.appendChild(deleteBtn);
@@ -46,6 +51,7 @@ function addTask() {
     taskInput.value = "";
     addTaskBtn.disabled = true;
     updateCount();
+    updateSerialNumbers();
 }
 
 function updateCount() {
@@ -53,11 +59,18 @@ function updateCount() {
     let completed = 0;
 
     for (let task of tasks) {
-        if (task.querySelector("span").classList.contains("completed")) {
+        if (task.querySelector(".completed")) {
             completed++;
         }
     }
 
     totalCount.textContent = tasks.length;
     completedCount.textContent = completed;
+}
+
+function updateSerialNumbers() {
+    const tasks = taskList.children;
+    for (let i = 0; i < tasks.length; i++) {
+        tasks[i].querySelector(".serial").textContent = (i + 1) + ". ";
+    }
 }

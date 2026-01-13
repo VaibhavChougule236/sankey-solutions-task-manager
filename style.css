@@ -48,6 +48,11 @@ li {
     align-items: center;
     margin-bottom: 8px;
 }
+.serial {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
 
 .completed {
     text-decoration: line-through;
